@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function medicalRecordUnitsMoved() {
+        return $this->hasMany(MedicalRecordUnit::class, 'user_id');
+    }
+
+    public function medicalRecordUnitsReceived() {
+        return $this->hasMany(MedicalRecordUnit::class, 'receptor_id');
+    }
 }
