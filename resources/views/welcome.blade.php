@@ -269,7 +269,6 @@
                 </div>
             </main>
         </div>
-        <a href="{{ route('google.redirect') }}" class="btn btn-primary"> Login with Google </a>
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
