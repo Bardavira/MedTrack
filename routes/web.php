@@ -1,10 +1,10 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\MedicalRecordController;
 use App\Http\Middleware\RedirectUnauthenticatedUser;
-use App\Models\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,10 +21,10 @@ Route::middleware(RedirectUnauthenticatedUser::class)->group(function () {
     });
     Route::prefix('/medical-records')->name('medical_records.')->group(function () {
         Route::get('/', [MedicalRecordController::class, 'index'])->name('index');
-        Route::get('/store', function () {
-            return view('medical_records.store_form')->name('store_form');
-        });
+        Route::get('/store', [MedicalRecordController::class, 'storeForm'])->name('store_form');
         Route::get('/{id}', [MedicalRecordController::class, 'index'])->name('show');
+        Route::get('/{id}/update', [MedicalRecordController::class, 'updateForm'])->name('update_form');
         Route::post('/', [MedicalRecordController::class, 'store'])->name('store');
+        Route::put('/{id}', [MedicalRecordController::class, 'update'])->name('update');
     });
 });
