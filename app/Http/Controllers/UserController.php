@@ -31,17 +31,19 @@ class UserController extends Controller
     $user->email = $request->email ? $request->email : $user->email;
     $user->name = $request->name ? $request->name : $user->name;
     $user->password = $request->password ? $request->password : $user->password;
+    $user->unit_id = $request->unit_id ? $request->unit_id : $user->unit_id;
     $user->save();
     return redirect('/user');
   }
 
   public function store(UserCreateRequest $request): RedirectResponse
   {
-    $validated = $request->validate();
+    $request->validate();
     $user = new User([
       'email' => $request()->post('email', ''),
       'name' => $request()->post('name', ''),
       'password' => $request()->post('password', ''),
+      'unit_id' => $request()->post('unit_id', '')
     ]);
     $user->save();
 
