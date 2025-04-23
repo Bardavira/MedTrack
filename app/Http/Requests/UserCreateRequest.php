@@ -26,7 +26,8 @@ class UserCreateRequest extends FormRequest
         return [
             'email' => 'required|max:130',
             'name' => 'required|max:130',
-            'password' => 'required|max:255'
+            'password' => 'required|max:255',
+            'unit_id' => 'numeric',
         ];
     }
 

@@ -27,6 +27,7 @@ class UserUpdateRequest extends FormRequest
             'name' => 'sometimes',
             'email' => 'sometimes',
             'password' => 'sometimes',
+            'unit_id' => 'sometimes|numeric'
         ];
     }
 
