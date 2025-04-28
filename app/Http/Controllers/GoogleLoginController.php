@@ -27,8 +27,8 @@ class GoogleLoginController extends Controller
 
         Auth::login($user);
         //Here we're using a value set on auth middleware
-        $intendedUrl = session('intended_url');
-
+        $intendedUrl = session()->pull('intended_url');
+        
         return redirect()->intended($intendedUrl);
     }
 }
