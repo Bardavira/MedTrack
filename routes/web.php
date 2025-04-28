@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\UbsUnitController;
+use App\Http\Controllers\UbsWingController;
 use App\Http\Middleware\RedirectUnauthenticatedUser;
 
 Route::get('/', function () {
@@ -17,10 +18,6 @@ Route::get('/login', function () {
 Route::get('/google/redirect', [GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
 Route::middleware(RedirectUnauthenticatedUser::class)->group(function () {
-    Route::get('/users', function () {
-        $users = User::all();
-        return view('user.index', compact('users'));
-    });
     Route::prefix('/medical-records')->name('medical_records.')->group(function () {
         Route::get('/', [MedicalRecordController::class, 'index'])->name('index');
         Route::get('/store', [MedicalRecordController::class, 'storeForm'])->name('store_form');
@@ -40,5 +37,11 @@ Route::middleware(RedirectUnauthenticatedUser::class)->group(function () {
         Route::post('/', [UbsUnitController::class, 'store'])->name('store');
         Route::put('/{id}', [UbsUnitController::class, 'update'])->name('update');
         Route::delete('/{id}', [UbsUnitController::class, 'delete'])->name('delete');
+    });
+    Route::prefix('/wings')->name('wings.')->group(function () {
+        Route::get('/', [UbsWingController::class, 'index'])->name('index');
+        Route::post('/', [UbsWingController::class, 'store'])->name('store');
+        Route::put('/{id}', [UbsWingController::class, 'update'])->name('update');
+        Route::delete('/{id}', [UbsWingController::class, 'delete'])->name('delete');
     });
 });
