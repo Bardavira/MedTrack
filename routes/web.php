@@ -1,12 +1,11 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\GoogleLoginController;
-use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\UbsUnitController;
 use App\Http\Controllers\UbsWingController;
+use App\Http\Controllers\GoogleLoginController;
+use App\Http\Controllers\MedicalRecordController;
 use App\Http\Middleware\RedirectUnauthenticatedUser;
 
 Route::get('/', function () {
