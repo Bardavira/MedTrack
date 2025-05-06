@@ -8,13 +8,22 @@ use App\Http\Requests\UpdateMedicalRecordRequest;
 
 class MedicalRecordController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         $medicalRecords = MedicalRecord::all();
 
         return view('medical_records.index', compact('medicalRecords'));
     }
 
-    public function store(CreateMedicalRecordRequest $request) {
+    public function show(int $id) 
+    {
+        $medicalRecord = MedicalRecord::find($id);
+
+        return view('medical_records.show', compact('medicalRecord'));
+    }
+
+    public function store(CreateMedicalRecordRequest $request) 
+    {
         $request->validated();
 
         $medicalRecord = new MedicalRecord([
@@ -28,17 +37,20 @@ class MedicalRecordController extends Controller
         return redirect()->route('medical_records.index');
     }
 
-    public function storeForm() {
+    public function storeForm() 
+    {
         return view('medical_records.store_form');
     }
 
-    public function updateForm(int $id) {
+    public function updateForm(int $id) 
+    {
         $medicalRecord = MedicalRecord::find($id);
 
         return view('medical_records.update_form', compact('medicalRecord'));
     }
     
-    public function update(UpdateMedicalRecordRequest $request, $id) {
+    public function update(UpdateMedicalRecordRequest $request, $id) 
+    {
         $request->validated();
 
         $medicalRecord = MedicalRecord::find($id);
