@@ -1,15 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Medical Record</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-blue-50">
+
+
+@include ('partials.menu')
+
 <div class="container">
-    <h1>Medical Records</h1>
+    <h1 class="text-center text-4xl font-bold mb-6">Medical Records</h1>
+
+    
+    <div class="mb-3">
+        <a href="{{ route('medical_records.store_form') }}" class="btn btn-success mt-4">Add New Record</a> 
+    </div>
+
     <table class="table table-striped">
-        <div class="mb-3">
-            <a href="{{ route('medical_records.store_form') }}" class="btn btn-success">Add New Record</a>
-        </div>
         <thead>
             <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Active</th>
-            <th>Actions</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Active</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -26,3 +43,6 @@
         </tbody>
     </table>
 </div>
+
+</body>
+</html>
