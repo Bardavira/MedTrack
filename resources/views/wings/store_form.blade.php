@@ -12,7 +12,7 @@
     @include ('partials.menu')
     
     <div class="container mt-5">
-        <h1 class="text-center text-4xl font-bold mb-6">Create Medical Records</h1>
+        <h1>Create Medical Record</h1>
         <form action="{{ route('medical_records.store') }}" method="POST">
             @csrf
             <div class="mb-3">

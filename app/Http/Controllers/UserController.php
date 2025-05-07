@@ -14,14 +14,14 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('user.index', compact('users'));
+        return view('users.index', compact('users'));
     }
 
     public function show(int $id)
     {
         $user = User::find($id);
 
-        return view('user.show', compact('user'));
+        return view('users.show', compact('user'));
     }
 
     public function delete($id)
