@@ -21,7 +21,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('users.show', compact('user'));
+        $movedMedicalRecords = $user->medicalRecordUnitsMoved()->orderBy('id', 'desc')->get();
+
+        $actualMedicalRecords = $user->medicalRecordUnitsReceived()->orderBy('id', 'desc')->get();
+
+        return view('users.show', compact('user', 'movedMedicalRecords', 'actualMedicalRecords'));
     }
 
     public function delete($id)
