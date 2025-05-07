@@ -39,6 +39,6 @@ class UbsUnit extends Model
     }
 
     public function wing() {
-        return $this->belongsTo(UbsWing::class, 'wing_id');;
+        return $this->belongsTo(UbsWing::class, 'wing_id');
     }
 }

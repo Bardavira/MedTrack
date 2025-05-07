@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\MedicalRecord;
 use App\Http\Requests\CreateMedicalRecordRequest;
 use App\Http\Requests\UpdateMedicalRecordRequest;
+use App\Models\MedicalRecordUnit;
+use App\Models\UbsUnit;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MedicalRecordController extends Controller
 {
@@ -19,7 +24,9 @@ class MedicalRecordController extends Controller
     {
         $medicalRecord = MedicalRecord::find($id);
 
-        return view('medical_records.show', compact('medicalRecord'));
+        $history = $medicalRecord->medicalRecordUnitHistory()->orderBy('id', 'desc')->get();
+
+        return view('medical_records.show', compact('medicalRecord', 'history'));
     }
 
     public function store(CreateMedicalRecordRequest $request) 
@@ -63,5 +70,35 @@ class MedicalRecordController extends Controller
         $medicalRecord->save();
 
         return redirect()->route('medical_records.index');
+    }
+
+    public function moveRecordForm(int $id)
+    {
+        $userUnit = Auth::user()->unit;
+        $users = User::all();
+        $units = UbsUnit::all();
+
+        $medicalRecord = MedicalRecord::find($id);
+
+        return view('medical_records.move_form', compact('medicalRecord', 'userUnit', 'units', 'users'));
+    }
+
+    public function moveRecord(int $id, Request $request)
+    {
+        $user = Auth::user();
+        
+        MedicalRecordUnit::where([
+            'medical_record_id' => $id
+        ])->update(['active' => 0]);
+
+        MedicalRecordUnit::new([
+            'user_id' => $user->id,
+            'unit_id' => $request->unit_id,
+            'receptor_id' => $request->receptor_id ?? $user->id,
+            'medical_record_id' => $id,
+            'active' => 1
+        ])->save();
+        
+        return view('medical_records.thanks');
     }
 }

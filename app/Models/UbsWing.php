@@ -31,6 +31,6 @@ class UbsWing extends Model
     }
 
     public function units() {
-        return $this->hasMany(UbsUnit::class, 'wing_id');;
+        return $this->hasMany(UbsUnit::class, 'wing_id');
     }
 }

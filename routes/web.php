@@ -22,6 +22,8 @@ Route::middleware(RedirectUnauthenticatedUser::class)->group(function () {
         Route::get('/store', [MedicalRecordController::class, 'storeForm'])->name('store_form');
         Route::get('/{id}', [MedicalRecordController::class, 'show'])->name('show');
         Route::get('/{id}/update', [MedicalRecordController::class, 'updateForm'])->name('update_form');
+        Route::get('/{id}/move-record', [MedicalRecordController::class, 'moveRecordForm'])->name('move_record_form');
+        Route::post('/{id}/move-record', [MedicalRecordController::class, 'moveRecord'])->name('move_record');
         Route::post('/', [MedicalRecordController::class, 'store'])->name('store');
         Route::put('/{id}', [MedicalRecordController::class, 'update'])->name('update');
     });

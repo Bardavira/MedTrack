@@ -53,4 +53,8 @@ class User extends Authenticatable
     public function medicalRecordUnitsReceived() {
         return $this->hasMany(MedicalRecordUnit::class, 'receptor_id');
     }
+
+    public function unit() {
+        return $this->belongsTo(UbsUnit::class, 'unit_id');
+    }
 }
