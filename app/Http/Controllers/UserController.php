@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UbsUnit;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
-use App\Models\UbsUnit;
 
 class UserController extends Controller
 {
