@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\UbsUnit;
 use App\Models\MedicalRecord;
+use App\Models\MedicalRecordUnit;
+use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Http\Requests\MoveMedicalRecordRequest;
 use App\Http\Requests\CreateMedicalRecordRequest;
 use App\Http\Requests\UpdateMedicalRecordRequest;
-use App\Models\MedicalRecordUnit;
-use App\Models\UbsUnit;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class MedicalRecordController extends Controller
 {
@@ -26,7 +27,9 @@ class MedicalRecordController extends Controller
 
         $history = $medicalRecord->medicalRecordUnitHistory()->orderBy('id', 'desc')->get();
 
-        return view('medical_records.show', compact('medicalRecord', 'history'));
+        $qrCode = QrCode::size(300)->generate(route('medical_records.move_record', ['id' => $id]));
+
+        return view('medical_records.show', compact('medicalRecord', 'history', 'qrCode'));
     }
 
     public function store(CreateMedicalRecordRequest $request) 
@@ -83,7 +86,7 @@ class MedicalRecordController extends Controller
         return view('medical_records.move_form', compact('medicalRecord', 'userUnit', 'units', 'users'));
     }
 
-    public function moveRecord(int $id, Request $request)
+    public function moveRecord(int $id, MoveMedicalRecordRequest $request)
     {
         $user = Auth::user();
         
