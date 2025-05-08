@@ -4,14 +4,14 @@
 <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update</title>
+    <title>Atualizar Prontuário</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     
 </head>
 <body class="bg-blue-50">
 @include ('partials.menu')
     <div class="container mt-5">
-        <h1>Create Medical Record</h1>
+        <h1>Atualizar prontuario</h1>
         <form action="{{ route('medical_records.update', $medicalRecord->id) }}" method="POST">
             @method('PUT')
             @csrf

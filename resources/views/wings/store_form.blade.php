@@ -4,7 +4,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Medical Record</title>
+    <title>Criar Ala</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     
 </head>
@@ -12,16 +12,13 @@
     @include ('partials.menu')
     
     <div class="container mt-5">
-        <h1>Create Medical Record</h1>
-        <form action="{{ route('medical_records.store') }}" method="POST">
+        <h1 class="text-center text-4xl font-bold mb-6">Criar Ala</h1>
+        <form action="{{ route('wings.store') }}" method="POST">
             @csrf
+            
             <div class="mb-3">
-                <label for="first_name" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="first_name" name="first_name" required>
-            </div>
-            <div class="mb-3">
-                <label for="last_name" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" required>
+                <label for="description" class="form-label">Descrição</label>
+                <input type="text" class="form-control" id="description" name="Descrição" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
