@@ -83,7 +83,7 @@ class MedicalRecordController extends Controller
 
         $medicalRecord = MedicalRecord::find($id);
 
-        return view('medical_records.move_form', compact('medicalRecord', 'userUnit', 'units', 'users'));
+        return view('medical_records.transfer.move_form', compact('medicalRecord', 'userUnit', 'units', 'users'));
     }
 
     public function moveRecord(int $id, MoveMedicalRecordRequest $request)
@@ -102,6 +102,6 @@ class MedicalRecordController extends Controller
             'active' => 1
         ])->save();
         
-        return view('medical_records.thanks');
+        return view('medical_records.transfer.thanks');
     }
 }
