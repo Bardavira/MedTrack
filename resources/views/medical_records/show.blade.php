@@ -14,15 +14,17 @@
 <div class="container py-6">
     <div class="flex justify-between items-center mb-6">
         <div>
-            <p><strong>Nome:</strong> {{ $record->first_name }}</p>
-            <p><strong>Sobrenome:</strong> {{ $record->last_name }}</p>
-            <p><strong>Ativo:</strong> {{ $record->active ? 'Yes' : 'No' }}</p>
-            <p><strong>Sala:</strong> {{ $record->unit_id }}</p>
+            <p><strong>Nome:</strong> {{ $medicalRecord->first_name }}</p>
+            <p><strong>Sobrenome:</strong> {{ $medicalRecord->last_name }}</p>
+            <p><strong>Ativo:</strong> {{ $medicalRecord->active ? 'Yes' : 'No' }}</p>
+            <p><strong>Sala:</strong> {{ $medicalRecord->unit_id }}</p>
         </div>
         <div>
-            <a href="{{ route('medical_records.update_form', $record->id) }}" class="btn btn-success">Atualizar Prontuário</a>
+            <a href="{{ route('medical_records.update_form', $medicalRecord->id) }}" class="btn btn-success">Atualizar Prontuário</a>
         </div>
     </div>
+    <h1>Your QR Code:</h1>
+    {!! $qrCode !!}
 
     <div class="grid grid-cols-2 gap-6">
         
@@ -39,34 +41,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($movedMedicalRecords as $record)
-                        <tr>
-                            <td>{{ $record->actor->name }}</td>
-                            <td>{{ $record->receptor->name }}</td>
-                            <td>{{ $record->unit->description }}</td>
-                            <td>{{ $record->created_at }}</td>
-                            <td>{{ $record->medicalRecord->firstName }} {{ $record->medicalRecord->lastName }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
-        
-        <div>
-            <h2 class="text-xl font-bold mb-4">Movimentações Para o Usuario</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Movimentador</th>
-                        <th>Receptor</th>
-                        <th>Sala</th>
-                        <th>Data</th>
-                        <th>Prontuário</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($actualMedicalRecords as $record)
+                    @foreach($history as $record)
                         <tr>
                             <td>{{ $record->actor->name }}</td>
                             <td>{{ $record->receptor->name }}</td>

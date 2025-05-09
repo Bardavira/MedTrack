@@ -21,11 +21,8 @@
             </div>
             <div class="mb-3">
                 <label for="receptor_id" class="form-label">Destinatário</label>
-                <input type="text" class="form-control" id="receptor_id" name="destinatario" placeholder="{{$receptor_id}}" required>
+                <input type="text" class="form-control" id="receptor_id" name="destinatario" required>
             </div>
-            <td>
-                <a href="{{ route('medical_records.transfer.thanks' }}" class="btn btn-primary btn-sm">View</a>
-            </td>
         </form>
     </div>
 </body>
