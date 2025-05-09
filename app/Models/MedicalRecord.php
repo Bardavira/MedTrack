@@ -36,10 +36,10 @@ class MedicalRecord extends Model
     }
 
     public function medicalRecordUnitHistory() {
-        $this->hasMany(MedicalRecordUnit::class, 'medical_record_id');
+        return $this->hasMany(MedicalRecordUnit::class, 'medical_record_id');
     }
 
     public function currentMedicalRecordUnit() {
-        $this->hasOne(MedicalRecordUnit::class, 'medical_record_id')->where('active', 1);
+        return $this->hasOne(MedicalRecordUnit::class, 'medical_record_id')->where('active', 1);
     }
 }
