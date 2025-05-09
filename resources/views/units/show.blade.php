@@ -16,10 +16,10 @@
         <div>
             
         <p><strong>Descrição:</strong> {{ $unit->description }}</p>
-        <p><strong>Ala:</strong> {{ $unit->wing_id }}</p>
+       <!--   <p><strong>Ala:</strong> {{ $unit->wing_id }}</p> -->
             
         </div>
         <div>
-            <a href="{{ route('wings.update_form', $wings->id) }}" class="btn btn-success">Atualizar Ala</a>
+            <a href="{{ route('wings.update_form', $wings->id) }}" class="btn btn-success">Atualizar Sala</a>
         </div>
     </div>

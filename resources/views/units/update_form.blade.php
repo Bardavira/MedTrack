@@ -17,12 +17,12 @@
             @csrf
             <div class="mb-3">
                 <label for="description" class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="description" name="Descrição" placeholder="{{$units->description}}" required>
+                <input type="text" class="form-control" id="description" name="description" placeholder="{{$units->description}}" required>
             </div>
-            <div class="mb-3">
+           <!--    <div class="mb-3">
                 <label for="wing->id" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="wing->id" name="wing->id" placeholder="{{$units->wing_id}}" required>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

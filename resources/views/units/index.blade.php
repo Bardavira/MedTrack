@@ -22,7 +22,7 @@
         <thead>
             <tr>
                 <th>Descrição</th>
-                <th>Ala</th>
+                <!--   <th>Ala</th> -->
                 
             </tr>
         </thead>
@@ -30,7 +30,7 @@
             @foreach($units as $unit)
                 <tr>
                     <td>{{ $unit->description }}</td>
-                    <td>{{ $unit->wing_id }}</td>
+                   <!--   <td>{{ $unit->wing_id }}</td> -->
                     <td>
                         <a href="{{ route('units.show', $unit->id) }}" class="btn btn-primary btn-sm">View</a>
                     </td>

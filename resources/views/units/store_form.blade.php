@@ -18,13 +18,13 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="description" name="Descrição" required>
+                <input type="text" class="form-control" id="description" name="description" required>
             </div>
             
-            <div class="mb-3">
+          <!--    <div class="mb-3">
                 <label for="wing_id" class="form-label">Ala</label>
-                <input type="text" class="form-control" id="wing_id" name="Ala" required>
-            </div>
+                <input type="text" class="form-control" id="wing_id" name="wing" required>
+           </div> -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

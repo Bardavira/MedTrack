@@ -21,10 +21,11 @@
            class="flex-1 flex items-center justify-center text-white text-sm hover:bg-blue-600 dark:hover:bg-blue-800 transition-all duration-500 hover:shadow-lg">
             Salas
         </a>
-        <a href="{{ route('wings.index') }}" 
+       <!-- 
+       <a href="{{ route('wings.index') }}" 
            class="flex-1 flex items-center justify-center text-white text-sm hover:bg-blue-600 dark:hover:bg-blue-800 transition-all duration-500 hover:shadow-lg">
             Alas
-        </a>
+        </a>-->
     </nav>
 </div>
 
