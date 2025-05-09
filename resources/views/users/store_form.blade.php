@@ -16,7 +16,7 @@
             @csrf
             <div class="mb-3">
                 <label for="first_name" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="first_name" name="Nome" required>
+                <input type="text" class="form-control" id="first_name" name="name" required>
             </div>
             
             

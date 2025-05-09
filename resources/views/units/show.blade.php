@@ -20,6 +20,6 @@
             
         </div>
         <div>
-            <a href="{{ route('wings.update_form', $wings->id) }}" class="btn btn-success">Atualizar Sala</a>
+            <a href="{{ route('units.update_form', $unit->id) }}" class="btn btn-success">Atualizar Sala</a>
         </div>
     </div>

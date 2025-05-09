@@ -64,12 +64,11 @@ class UserController extends Controller
 
     public function store(UserCreateRequest $request): RedirectResponse
     {
-        $request->validate();
         $user = new User([
-            'email' => $request()->post('email', ''),
-            'name' => $request()->post('name', ''),
-            'password' => $request()->post('password', ''),
-            'unit_id' => $request()->post('unit_id', '')
+            'email' => $request->post('email', ''),
+            'name' => $request->post('name', ''),
+            'password' => $request->post('password', ''),
+            'unit_id' => $request->post('unit_id', '')
         ]);
         $user->save();
 

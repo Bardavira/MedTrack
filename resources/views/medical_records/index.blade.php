@@ -24,18 +24,17 @@
                     <thead class="table-light">
                         <tr>
                             <th>Numero</th>
-                            <!-- <th>Endereço</th> -->
+                            <th>Endereço</th>
                             <th>Ativo</th>
-                            <th>Sala</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($medicalRecords as $record)
                             <tr>
-                                <td>{{ $record->id }}</td>
-                                <!-<td>{{ $record->adress }}</td>-->
-                                <td>{{ $record->active ? 'Yes' : 'No' }}</td>
-                                <td>{{ $record->unit_id }}</td>
+                                <td>{{ $record->first_name }}</td>
+                                <td>{{ $record->last_name }}</td>
+                                <td>{{ $record->active ? 'Sim' : 'Não' }}</td>
                                 <td>
                                     <a href="{{ route('medical_records.show', $record->id) }}" class="btn btn-primary btn-sm">View</a>
                                 </td>

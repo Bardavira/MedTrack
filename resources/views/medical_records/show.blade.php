@@ -14,13 +14,12 @@
 <div class="container py-6">
     <div class="flex justify-between items-center mb-6">
         <div>
-            <p><strong>Nome:</strong> {{ $medicalRecord->first_name }}</p>
-            <p><strong>Sobrenome:</strong> {{ $medicalRecord->last_name }}</p>
-            <p><strong>Ativo:</strong> {{ $medicalRecord->active ? 'Yes' : 'No' }}</p>
-            <p><strong>Sala:</strong> {{ $medicalRecord->unit_id }}</p>
+            <p><strong>Número do Prontuário:</strong> {{ $medicalRecord->first_name }}</p>
+            <p><strong>Endereço:</strong> {{ $medicalRecord->last_name }}</p>
+            <p><strong>Ativo:</strong> {{ $medicalRecord->active ? 'Sim' : 'Não' }}</p>
         </div>
         <div>
-            <a href="{{ route('medical_records.update_form', $record->id) }}" class="btn btn-success">Atualizar Prontuário</a>
+            <a href="{{ route('medical_records.update_form', $medicalRecord->id) }}" class="btn btn-success">Atualizar Prontuário</a>
         </div>
     </div>
 

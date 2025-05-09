@@ -21,7 +21,7 @@ class UbsUnitController extends Controller
     {
         $unit = UbsUnit::find($id);
 
-        return view('units.index', compact('unit'));
+        return view('units.show', compact('unit'));
     }
 
     public function storeForm() 
@@ -45,7 +45,7 @@ class UbsUnitController extends Controller
 
         $ubsUnit = new UbsUnit([
             'description' => $request->post('description', ''),
-            'wing_id' => $request->post('wind_id', ''),
+            'wing_id' => $request->post('wing_id'),
         ]);
         $ubsUnit->save();
 

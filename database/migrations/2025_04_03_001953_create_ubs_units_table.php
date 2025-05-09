@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('ubs_units', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('wing_id');
+            $table->unsignedBigInteger('wing_id')->nullable();
             $table->index('wing_id');
-            $table->foreign('wing_id')->references('id')->on('ubs_wings')->onDelete('cascade')->nullable();
+            $table->foreign('wing_id')->references('id')->on('ubs_wings')->onDelete('cascade');
             $table->string('description');
             $table->timestamps();
         });

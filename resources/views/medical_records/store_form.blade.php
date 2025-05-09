@@ -16,12 +16,12 @@
         <form action="{{ route('medical_records.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="id" class="form-label">Numero do Prontuário</label>
-                <input type="text" class="form-control" id="id" name="id" required>
+                <label for="first_name" class="form-label">Número do Prontuário</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
             </div>
             <div class="mb-3">
-                <label for="unit_id" class="form-label">Sala</label>
-                <input type="text" class="form-control" id="unit_id" name="unit_id" required>
+                <label for="last_name" class="form-label">Endereço</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

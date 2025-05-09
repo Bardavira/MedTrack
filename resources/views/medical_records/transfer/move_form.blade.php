@@ -11,7 +11,7 @@
 
     <div class="container mt-5">
         <h1>Mover Prontuário</h1>
-        <form action="{{ route('medical_records.transfer.move_form', $medicalRecord->id) }}" method="POST">
+        <form action="{{ route('medical_records.move_record', $medicalRecord->id) }}" method="POST">
             @method('PUT')
             @csrf
             
@@ -40,7 +40,7 @@
             </div>
 
             <div>
-            <a href="{{ route('medical_records.transfer.thanks') }}" class="btn btn-success">Atualizar Prontuário</a>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
         </form>
     </div>
