@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('wing_id');
             $table->index('wing_id');
-            $table->foreign('wing_id')->references('id')->on('ubs_wings')->onDelete('cascade');
+            $table->foreign('wing_id')->references('id')->on('ubs_wings')->onDelete('cascade')->nullable();
             $table->string('description');
             $table->timestamps();
         });
