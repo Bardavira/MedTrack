@@ -23,8 +23,8 @@
                 <table class="table table-striped table-bordered border border-blue-400">
                     <thead class="table-light">
                         <tr>
-                            <th>Nome</th>
-                            <th>Sobreome</th>
+                            <th>Numero</th>
+                            <!-- <th>Endereço</th> -->
                             <th>Ativo</th>
                             <th>Sala</th>
                         </tr>
@@ -32,8 +32,8 @@
                     <tbody>
                         @foreach($medicalRecords as $record)
                             <tr>
-                                <td>{{ $record->first_name }}</td>
-                                <td>{{ $record->last_name }}</td>
+                                <td>{{ $record->id }}</td>
+                                <!-<td>{{ $record->adress }}</td>-->
                                 <td>{{ $record->active ? 'Yes' : 'No' }}</td>
                                 <td>{{ $record->unit_id }}</td>
                                 <td>

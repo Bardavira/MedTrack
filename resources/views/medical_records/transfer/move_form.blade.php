@@ -39,7 +39,9 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Atualizar</button>
+            <div>
+            <a href="{{ route('medical_records.transfer.thanks') }}" class="btn btn-success">Atualizar Prontuário</a>
+        </div>
         </form>
     </div>
 </body>

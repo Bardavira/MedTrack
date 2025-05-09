@@ -18,14 +18,8 @@
                 <label for="first_name" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="first_name" name="Nome" required>
             </div>
-            <div class="mb-3">
-                <label for="last_name" class="form-label">Sobrenome</label>
-                <input type="text" class="form-control" id="last_name" name="Sobrenome" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="Email" required>
-            </div>
+            
+            
             <div class="mb-3">
                 <label for="unit_id" class="form-label">Sala</label>
                 <select class="form-select" id="unit_id" name="unit_id" required>
@@ -34,6 +28,14 @@
                         <option value="{{ $unit->id }}">{{ $unit->description }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="text" class="form-control" id="password" name="password" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -15,14 +15,17 @@
         <form action="{{ route('medical_records.update', $medicalRecord->id) }}" method="POST">
             @method('PUT')
             @csrf
-            <div class="mb-3">
-                <label for="first_name" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="{{$medicalRecord->first_name}}" required>
-            </div>
-            <div class="mb-3">
-                <label for="last_name" class="form-label">Last Name</label>
+
+           <!-- <div class="mb-3">
+                <label for="adress" class="form-label">Endereco</label>
                 <input type="text" class="form-control" id="last_name" name="last_name" placeholder="{{$medicalRecord->last_name}}" required>
+            </div>-->
+
+            <div class="mb-3">
+                <label for="unit_id" class="form-label">Sala</label>
+                <input type="text" class="form-control" id="unit_id" name="unit_id" placeholder="{{$medicalRecord->unit_id}}" required>
             </div>
+            
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
