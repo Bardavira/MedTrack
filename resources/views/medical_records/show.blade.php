@@ -14,16 +14,23 @@
 <div class="container py-6">
     <div class="flex justify-between items-center mb-6">
         <div>
+              <h1 class="text-3xl mb-6">
             <p><strong>Número do Prontuário:</strong> {{ $medicalRecord->first_name }}</p>
             <p><strong>Endereço:</strong> {{ $medicalRecord->last_name }}</p>
-            <p><strong>Ativo:</strong> {{ $medicalRecord->active ? 'Sim' : 'Não' }}</p>
+            <p><strong>Ativo:</strong> {{ $medicalRecord->active ? 'Sim' : 'Não' }}</p></h1>
         </div>
+        <div>
+        <h1 class="text-2xl mb-6">Cole no seu prontuário:</h1>
+        <div class="pt-4"></div>
+    {!! $qrCode !!}
+    </div>
         <div>
             <a href="{{ route('medical_records.update_form', $medicalRecord->id) }}" class="btn btn-success">Atualizar Prontuário</a>
         </div>
     </div>
-
+    <div class="flex justify-center">
     <div class="grid grid-cols-2 gap-6">
+
         
         <div>
             <h2 class="text-xl font-bold mb-4">Movimentações</h2>
@@ -50,10 +57,8 @@
                 </tbody>
             </table>
         </div>
-
-        
-        
     </div>
+</div>
 </div>
 
 </body>

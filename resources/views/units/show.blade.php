@@ -14,8 +14,7 @@
 <div class="container py-6">
     <div class="flex justify-between items-center mb-6">
         <div>
-            
-        <p><strong>Descrição:</strong> {{ $unit->description }}</p>
+            <h1 class="text-3xl mb-6"><strong>Descrição:</strong> {{ $unit->description }}</h1>
        <!--   <p><strong>Ala:</strong> {{ $unit->wing_id }}</p> -->
             
         </div>

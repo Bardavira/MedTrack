@@ -23,6 +23,7 @@
             <tr>
                 <th>Descrição</th>
                 <!--   <th>Ala</th> -->
+                <th></th>
                 
             </tr>
         </thead>

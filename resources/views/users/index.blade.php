@@ -25,6 +25,7 @@
                 <th>Nome</th>
                 <th>Email</th>
                 <th>Sala</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
