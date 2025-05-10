@@ -71,7 +71,7 @@
                             <td>{{ $record->receptor->name }}</td>
                             <td>{{ $record->unit->description }}</td>
                             <td>{{ $record->created_at }}</td>
-                            <td>{{ $record->medicalRecord->firstName }} {{ $record->medicalRecord->lastName }}</td>
+                            <td>{{ $record->medicalRecord->first_name }} {{ $record->medicalRecord->last_name }}</td>
                         </tr>
                     @endforeach
                 </tbody>
