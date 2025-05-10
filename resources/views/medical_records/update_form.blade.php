@@ -25,27 +25,6 @@
                 <label for="last_name" class="form-label">Endereço</label>
                 <input type="text" class="form-control" id="last_name" name="last_name" value="{{ $medicalRecord->last_name }}" required>
             </div>
-
-            <div class="mb-3">
-                <label for="unit_id" class="form-label">Sala</label>
-                <select class="form-select" id="unit_id" name="unit_id">
-                    <option value="">Selecione uma sala (opcional)</option>
-                    @foreach($units as $unit)
-                        <option value="{{ $unit->id }}" 
-                            @if($medicalRecord->unit_id == $unit->id) selected @endif>
-                            {{ $unit->description }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="active" class="form-label">Ativo</label>
-                <select class="form-select" id="active" name="active" required>
-                    <option value="1" {{ $medicalRecord->active ? 'selected' : '' }}>Sim</option>
-                    <option value="0" {{ !$medicalRecord->active ? 'selected' : '' }}>Não</option>
-                </select>
-            </div>
             
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>

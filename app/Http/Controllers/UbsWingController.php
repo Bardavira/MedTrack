@@ -37,8 +37,6 @@ class UbsWingController extends Controller
 
     public function store(UbsWingCreateRequest $request): RedirectResponse
     {
-        $request->validated();
-
         $ubsWing = new UbsWing([
             'description' => $request->post('description', ''),
         ]);
@@ -57,8 +55,6 @@ class UbsWingController extends Controller
 
     public function update($id, UbsWingUpdateRequest $request): RedirectResponse
     {
-        $request->validated();
-
         $ubsWing = UbsWing::where('id', $id)->firstOrFail();
         $ubsWing->description = $request->description ? $request->description : $ubsWing->description;
         $ubsWing->save();

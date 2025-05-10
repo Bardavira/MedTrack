@@ -34,8 +34,6 @@ class MedicalRecordController extends Controller
 
     public function store(CreateMedicalRecordRequest $request) 
     {
-        $request->validated();
-
         $medicalRecord = new MedicalRecord([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -61,8 +59,6 @@ class MedicalRecordController extends Controller
     
     public function update(UpdateMedicalRecordRequest $request, $id) 
     {
-        $request->validated();
-
         $medicalRecord = MedicalRecord::find($id);
 
         $medicalRecord->update([
@@ -94,7 +90,7 @@ class MedicalRecordController extends Controller
             'medical_record_id' => $id
         ])->update(['active' => 0]);
 
-        MedicalRecordUnit::new([
+        new MedicalRecordUnit([
             'user_id' => $user->id,
             'unit_id' => $request->unit_id,
             'receptor_id' => $request->receptor_id ?? $user->id,

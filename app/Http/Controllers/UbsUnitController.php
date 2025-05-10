@@ -41,8 +41,6 @@ class UbsUnitController extends Controller
 
     public function store(UbsUnitCreateRequest $request): RedirectResponse
     {
-        $request->validated();
-
         $ubsUnit = new UbsUnit([
             'description' => $request->post('description', ''),
             'wing_id' => $request->post('wing_id'),
@@ -62,8 +60,6 @@ class UbsUnitController extends Controller
 
     public function update($id, UbsUnitUpdateRequest $request): RedirectResponse
     {
-        $request->validated();
-
         $ubsUnit = UbsUnit::where('id', $id)->firstOrFail();
 
         $ubsUnit->description = $request->description ? $request->description : $ubsUnit->description;

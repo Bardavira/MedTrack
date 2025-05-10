@@ -52,7 +52,6 @@ class UserController extends Controller
   
     public function update(int $id, UserUpdateRequest $request): RedirectResponse
     {
-        $request->validate();
         $user = User::where('id', $id)->firstOrFail();
         $user->email = $request->email ? $request->email : $user->email;
         $user->name = $request->name ? $request->name : $user->name;
@@ -65,11 +64,12 @@ class UserController extends Controller
     public function store(UserCreateRequest $request): RedirectResponse
     {
         $user = new User([
-            'email' => $request->post('email', ''),
-            'name' => $request->post('name', ''),
-            'password' => $request->post('password', ''),
-            'unit_id' => $request->post('unit_id', '')
+            'email' => $request->email,
+            'name' => $request->name,
+            'password' => $request->password,
+            'unit_id' => $request->unit_id
         ]);
+
         $user->save();
 
         return redirect()->route('users.index');

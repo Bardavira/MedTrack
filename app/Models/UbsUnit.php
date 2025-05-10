@@ -15,7 +15,8 @@ class UbsUnit extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'description'
+        'description',
+        'wing_id'
     ];
 
     /**

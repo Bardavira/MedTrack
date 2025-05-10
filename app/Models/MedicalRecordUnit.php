@@ -17,7 +17,8 @@ class MedicalRecordUnit extends Model
     protected $fillable = [
         'user_id',
         'unit_id',
-        'employee_id',
+        'receptor_id',
+        'medical_record_id',
         'active',
     ];
 

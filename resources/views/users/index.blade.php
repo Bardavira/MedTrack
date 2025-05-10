@@ -32,7 +32,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->unit_description }}</td>
+                    <td>{{ $user->unit ? $user->unit->description : '-' }}</td>
                     <td>
                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">View</a>
                     </td>
