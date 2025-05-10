@@ -11,7 +11,7 @@
 
     <div class="container mt-5">
         <h1>Mover Prontuário</h1>
-        <form action="{{ route('medical_records.move_record', $medicalRecord->id) }}" method="POST">
+        <form action="{{ route('medical_records.move_form', $medicalRecord->id) }}" method="POST">
             @method('PUT')
             @csrf
             
@@ -28,12 +28,12 @@
             </div>
 
             <div class="mb-3">
-                <label for="record" class="form-label">Prontuário Selecionado</label>
+                <label for="record" class="form-label">Medico Destinatario</label>
                 <select class="form-select" id="receptor_id" name="receptor_id" required>
                     <option value="">Selecione um destinatário</option>
-                    @foreach($records as $record)
-                        <option value="{{ $record->id }}" {{ $record->id == $receptor_id ? 'selected' : '' }}>
-                            {{ $record->id }}
+                    @foreach($users as $user)
+                        <option value="{{ $user->name }}" {{ $user->id == $receptor_id ? 'selected' : '' }}>
+                            {{ $user->name }}
                         </option>
                     @endforeach
                 </select>

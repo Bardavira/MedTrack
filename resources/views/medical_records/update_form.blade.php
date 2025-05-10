@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Prontuário</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    
 </head>
 <body class="bg-blue-50">
-@include ('partials.menu')
+    @include ('partials.menu')
+
     <div class="container mt-5">
-        <h1>Atualizar prontuario</h1>
+        <h1 class="text-center text-4xl font-bold mb-6">Atualizar Prontuário</h1>
         <form action="{{ route('medical_records.update', $medicalRecord->id) }}" method="POST">
             @method('PUT')
             @csrf
 
-           <!-- <div class="mb-3">
-                <label for="adress" class="form-label">Endereco</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="{{$medicalRecord->last_name}}" required>
-            </div>-->
+            <div class="mb-3">
+                <label for="first_name" class="form-label">Número do Prontuário</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" value="{{ $medicalRecord->first_name }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="last_name" class="form-label">Endereço</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" value="{{ $medicalRecord->last_name }}" required>
+            </div>
 
             <div class="mb-3">
                 <label for="unit_id" class="form-label">Sala</label>
-                <input type="text" class="form-control" id="unit_id" name="unit_id" placeholder="{{$medicalRecord->unit_id}}" required>
+                <select class="form-select" id="unit_id" name="unit_id">
+                    <option value="">Selecione uma sala (opcional)</option>
+                    @foreach($units as $unit)
+                        <option value="{{ $unit->id }}" 
+                            @if($medicalRecord->unit_id == $unit->id) selected @endif>
+                            {{ $unit->description }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="active" class="form-label">Ativo</label>
+                <select class="form-select" id="active" name="active" required>
+                    <option value="1" {{ $medicalRecord->active ? 'selected' : '' }}>Sim</option>
+                    <option value="0" {{ !$medicalRecord->active ? 'selected' : '' }}>Não</option>
+                </select>
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
     </div>
 </body>
 </html>
+
+
+
