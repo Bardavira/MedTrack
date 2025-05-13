@@ -11,6 +11,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Http\Requests\MoveMedicalRecordRequest;
 use App\Http\Requests\CreateMedicalRecordRequest;
 use App\Http\Requests\UpdateMedicalRecordRequest;
+use Illuminate\Support\Facades\Storage;
 
 class MedicalRecordController extends Controller
 {
@@ -27,9 +28,14 @@ class MedicalRecordController extends Controller
 
         $history = $medicalRecord->medicalRecordUnitHistory()->orderBy('id', 'desc')->get();
 
-        $qrCode = QrCode::size(300)->generate(route('medical_records.move_record', ['id' => $id]));
+        $qrCode = QrCode::size(300)->format('png')->generate(route('medical_records.move_record', ['id' => $id]));
 
-        return view('medical_records.show', compact('medicalRecord', 'history', 'qrCode'));
+        $qrCodeImage = Storage::disk('public')->put($id . ".png", $qrCode);
+
+        $qrCodeLink = Storage::url($id . '.png');
+
+
+        return view('medical_records.show', compact('medicalRecord', 'history', 'qrCodeLink'));
     }
 
     public function store(CreateMedicalRecordRequest $request) 

@@ -22,7 +22,7 @@
         <div>
         <h1 class="text-2xl mb-6">Cole no seu prontuário:</h1>
         <div class="pt-4"></div>
-    {!! $qrCode !!}
+    <img src="{{ $qrCodeLink}}">
     </div>
         <div>
             <a href="{{ route('medical_records.update_form', $medicalRecord->id) }}" class="btn btn-success">Atualizar Prontuário</a>

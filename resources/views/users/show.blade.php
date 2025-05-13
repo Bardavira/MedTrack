@@ -17,7 +17,7 @@
         <h1 class="text-3xl mb-6">
             <p><strong>Nome:</strong> {{ $user->name }}</p>
             <p><strong>Email:</strong> {{ $user->email }}</p>
-            <p><strong>Sala:</strong> {{ $user->unit_id }}</p></h1>
+            <p><strong>Sala:</strong> {{ $user->unit->description }}</p></h1>
         </div>
         <div>
             <a href="{{ route('users.update_form', $user->id) }}" class="btn btn-success">Atualizar Usuário</a>
