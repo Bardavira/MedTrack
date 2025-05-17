@@ -28,7 +28,7 @@ class MedicalRecordController extends Controller
 
         $history = $medicalRecord->medicalRecordUnitHistory()->orderBy('id', 'desc')->get();
 
-        $qrCode = QrCode::size(300)->format('png')->generate(route('medical_records.move_record', ['id' => $id]));
+        $qrCode = QrCode::size(300)->format('png')->generate('http://' . env('LOCAL_IP_PORT') . '/medical-records/' . $id . '/move-record');
 
         $qrCodeImage = Storage::disk('public')->put($id . ".png", $qrCode);
 

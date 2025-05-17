@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UbsUnitController;
@@ -14,6 +15,8 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('authenticate');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/google/redirect', [GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
 Route::get('/google/callback', [GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
 Route::middleware(RedirectUnauthenticatedUser::class)->group(function () {
