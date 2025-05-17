@@ -19,7 +19,7 @@
                 <label for="description" class="form-label">Descrição</label>
                 <input type="text" class="form-control" id="description" name="description" placeholder="{{$wing->description}}" required>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
     </div>
 </body>

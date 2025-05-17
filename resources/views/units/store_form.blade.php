@@ -25,7 +25,7 @@
                 <label for="wing_id" class="form-label">Ala</label>
                 <input type="text" class="form-control" id="wing_id" name="wing" required>
            </div> -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Criar</button>
         </form>
     </div>
 </body>

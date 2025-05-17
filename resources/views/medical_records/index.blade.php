@@ -36,7 +36,7 @@
                                 <td>{{ $record->last_name }}</td>
                                 <td>{{ $record->active ? 'Sim' : 'Não' }}</td>
                                 <td>
-                                    <a href="{{ route('medical_records.show', $record->id) }}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{ route('medical_records.show', $record->id) }}" class="btn btn-primary btn-sm">Visualizar</a>
                                 </td>
                             </tr>
                         @endforeach

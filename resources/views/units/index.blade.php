@@ -33,7 +33,7 @@
                     <td>{{ $unit->description }}</td>
                    <!--   <td>{{ $unit->wing_id }}</td> -->
                     <td>
-                        <a href="{{ route('units.show', $unit->id) }}" class="btn btn-primary btn-sm">View</a>
+                        <a href="{{ route('units.show', $unit->id) }}" class="btn btn-primary btn-sm">Visualizar</a>
                     </td>
                 </tr>
             @endforeach

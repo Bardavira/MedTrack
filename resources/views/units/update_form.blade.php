@@ -23,7 +23,7 @@
                 <label for="wing->id" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="wing->id" name="wing->id" placeholder="{{$unit->wing_id}}" required>
             </div> -->
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
     </div>
 </body>

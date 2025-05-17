@@ -20,7 +20,7 @@
                 <label for="description" class="form-label">Descrição</label>
                 <input type="text" class="form-control" id="description" name="Descrição" required>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Criar</button>
         </form>
     </div>
 </body>

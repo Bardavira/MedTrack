@@ -3,66 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login with Google</title>
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .login-container {
-            text-align: center;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .login-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: #4285F4;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .login-btn i {
-            margin-right: 10px;
-        }
-        .login-btn:hover {
-            background-color: #357ae8;
-        }
-    </style>
 </head>
-<body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <a href="{{ route('google.redirect') }}" class="login-btn">
-            <i class="fab fa-google"></i> Login with Google
-        </a>
+<body class="bg-blue-50 flex items-center justify-center h-screen">
+<div class="items-center">
+    <div class="text-center mb-6">
+        <h1 class="text-2xl text-blue-800">Faça seu Login</h1>
     </div>
-    <form action="{{ route('authenticate') }}" method="POST">
+
+    <div class="aspect-square bg-blue-600 text-white p-8 rounded-lg shadow-lg w-96 max-w-md text-center ">
+        <a href="{{ route('google.redirect') }}" class="block bg-blue-800 hover:bg-blue-700 text-white py-2 px-4 rounded mb-4 flex items-center justify-center">
+            <i class="fab fa-google mr-2"></i> Google
+        </a>
+
+        <div class="text-center mb-4">Ou</div>
+
+        <form action="{{ route('authenticate') }}" method="POST" class="space-y-4">
             @csrf
-
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" required>
+            <div>
+                <label for="email" class="block mb-1 text-white">Email</label>
+                <input type="text" id="email" name="email" required class="w-full px-3 py-2 rounded border border-gray-300 text-black">
             </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="password" name="password" required>
+            <div>
+                <label for="password" class="block mb-1 text-white">Senha</label>
+                <input type="password" id="password" name="password" required class="w-full px-3 py-2 rounded border border-gray-300 text-black">
             </div>
 
-            <button type="submit" class="btn btn-primary">LOGIN</button>
+            <button type="submit" class="w-full bg-blue-800 hover:bg-blue-700 text-white py-2 px-4 rounded">LOGIN</button>
         </form>
+    </div>
+    </div>
 </body>
 </html>

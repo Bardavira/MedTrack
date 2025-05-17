@@ -35,7 +35,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->unit ? $user->unit->description : '-' }}</td>
                     <td>
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">View</a>
+                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">Visualizar</a>
                     </td>
                 </tr>
             @endforeach

@@ -32,7 +32,7 @@
             @foreach($wings as $wing)
                 <tr>
                     <td>{{ $wing->description }}</td>
-                        <a href="{{ route('wings.show', $wing->id) }}" class="btn btn-primary btn-sm">View</a>
+                        <a href="{{ route('wings.show', $wing->id) }}" class="btn btn-primary btn-sm">Visualizar</a>
                     </td>
                 </tr>
             @endforeach
