@@ -17,10 +17,10 @@ class RedirectUnauthenticatedUser
     public function handle(Request $request, Closure $next): Response
     {
        //Here well store in session the intended url for google callback use
-        session()->put('intended_url', url()->current());
-        if (!Auth::user()) {
-            return redirect()->route('login');
-        }
+     //   session()->put('intended_url', url()->current());
+     //   if (!Auth::user()) {
+     //       return redirect()->route('login');
+     //   }
         return $next($request);
     }
 }
