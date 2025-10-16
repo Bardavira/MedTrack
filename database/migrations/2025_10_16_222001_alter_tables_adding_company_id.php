@@ -17,19 +17,19 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
         Schema::table('ubs_wings', function (Blueprint $table) {
-            $table->unsignedBigInteger('company_id')->after('wing_id');
+            $table->unsignedBigInteger('company_id')->after('id');
             $table->index('company_id');
-            $table->foreign('company_id')->references('id')->on('ubs_wings')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
         Schema::table('ubs_units', function (Blueprint $table) {
-            $table->unsignedBigInteger('company_id')->after('unit_id');
+            $table->unsignedBigInteger('company_id')->after('id');
             $table->index('company_id');
-            $table->foreign('company_id')->references('id')->on('ubs_units')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
         Schema::table('medical_records', function (Blueprint $table) {
-            $table->unsignedBigInteger('company_id')->after('active');
+            $table->unsignedBigInteger('company_id')->after('id');
             $table->index('company_id');
-            $table->foreign('company_id')->references('id')->on('medical_records')->onDelete('cascade');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 
