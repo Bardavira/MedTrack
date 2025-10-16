@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class MedicalRecord extends Model
 {
@@ -19,6 +20,7 @@ class MedicalRecord extends Model
         'first_name',
         'last_name',
         'active',
+        'company_id',
     ];
 
     /**
@@ -41,5 +43,9 @@ class MedicalRecord extends Model
 
     public function currentMedicalRecordUnit() {
         return $this->hasOne(MedicalRecordUnit::class, 'medical_record_id')->where('active', 1);
+    }
+
+    public function company() {
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

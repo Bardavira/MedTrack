@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Company;
+use App\Models\UbsUnit;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UbsWing extends Model
 {
@@ -15,7 +17,8 @@ class UbsWing extends Model
      * @var list<string>
      */
     protected $fillable = [
-        'description'
+        'description',
+        'company_id',
     ];
 
     /**
@@ -32,5 +35,9 @@ class UbsWing extends Model
 
     public function units() {
         return $this->hasMany(UbsUnit::class, 'wing_id');
+    }
+
+    public function company() {
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

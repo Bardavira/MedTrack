@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'unit_id',
+        'company_id',
     ];
 
     /**
@@ -57,5 +58,9 @@ class User extends Authenticatable
 
     public function unit() {
         return $this->belongsTo(UbsUnit::class, 'unit_id');
+    }
+
+    public function company() {
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }
