@@ -1,50 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Medical Record</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body class="bg-blue-50">
+@extends('layouts.app')
 
-    @include('partials.menu')
+@section('title', 'Prontuários')
 
-    <div class="py-6">
-        <div class="container">
-            <h1 class="text-center text-4xl font-bold mb-6">Prontuários</h1>
+@section('content')
+<div class="py-6">
+    <div class="max-w-6xl mx-auto px-4">
+        <h1 class="text-center text-4xl font-bold mb-6">Prontuários</h1>
 
-            <div class="mb-3">
-                <a href="{{ route('medical_records.store_form') }}" class="btn btn-success mt-4">Adicionar Novo Prontuário</a> 
-            </div>
-
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered border border-blue-400">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Numero</th>
-                            <th>Endereço</th>
-                            <th>Ativo</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($medicalRecords as $record)
-                            <tr>
-                                <td>{{ $record->first_name }}</td>
-                                <td>{{ $record->last_name }}</td>
-                                <td>{{ $record->active ? 'Sim' : 'Não' }}</td>
-                                <td>
-                                    <a href="{{ route('medical_records.show', $record->id) }}" class="btn btn-primary btn-sm">Visualizar</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+        <div class="mb-4">
+            <a href="{{ route('medical_records.store_form') }}"
+               class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
+               Adicionar Novo Prontuário
+            </a>
         </div>
-    </div>
 
-</body>
-</html>
+       <div class="overflow-x-auto">
+    <table class="min-w-full border border-blue-400 text-sm text-left">
+        <thead class="text-gray-900 dark:text-gray-100">
+            <tr>
+                <th class="px-4 py-2 border">Numero</th>
+                <th class="px-4 py-2 border">Endereço</th>
+                <th class="px-4 py-2 border">Ativo</th>
+                <th class="px-4 py-2 border"></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($medicalRecords as $record)
+            <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 border-t">
+                <td class="px-4 py-2 border">{{ $record->first_name }}</td>
+                <td class="px-4 py-2 border">{{ $record->last_name }}</td>
+                <td class="px-4 py-2 border">
+                    {{ $record->active ? 'Sim' : 'Não' }}
+                </td>
+                <td class="px-4 py-2 border text-center">
+                    <a href="{{ route('medical_records.show', $record->id) }}"
+                       class="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold py-1 px-3 rounded shadow">
+                       Visualizar
+                    </a>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>
+
+
+    </div>
+</div>
+@endsection
