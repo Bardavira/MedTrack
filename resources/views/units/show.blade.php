@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mostrar Sala</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-</head>
-<body class="bg-blue-50">
+@extends('layouts.app')
 
-@include ('partials.menu')
+@section('title', 'Mostrar Salas')
 
-<div class="container py-6">
-    <div class="flex justify-between items-center mb-6">
+@section('content')
+<div class="max-w-4xl mx-auto px-4 py-6">
+
+    <div class="flex justify-between flex-wrap gap-4 items-center mb-8">
         <div>
-            <h1 class="text-3xl mb-6"><strong>Descrição:</strong> {{ $unit->description }}</h1>
-       <!--   <p><strong>Ala:</strong> {{ $unit->wing_id }}</p> -->
-            
+            <h1 class="text-3xl font-bold mb-2">Sala</h1>
+            <p><strong>Descrição:</strong> {{ $unit->description }}</p>
+            {{-- <p><strong>Ala:</strong> {{ $unit->wing_id }}</p> --}}
         </div>
+
         <div>
-            <a href="{{ route('units.update_form', $unit->id) }}" class="btn btn-success">Atualizar Sala</a>
+            <a href="{{ route('units.update_form', $unit->id) }}"
+               class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
+               Atualizar Sala
+            </a>
         </div>
     </div>
+
+</div>
+@endsection

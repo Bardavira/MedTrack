@@ -13,7 +13,7 @@
             <!-- Settings menu inside top bar -->
 <div class="flex items-center gap-4">
 
-    <!-- Dark Mode Toggle Slider -->
+    <!-- Dark Mode slider -->
     <label class="inline-flex relative items-center cursor-pointer">
         <input type="checkbox" id="darkModeToggle" class="sr-only peer">
         <div class="w-12 h-6 bg-gray-300 rounded-full peer dark:bg-gray-600 peer-checked:bg-blue-600 transition-colors duration-300"></div>
