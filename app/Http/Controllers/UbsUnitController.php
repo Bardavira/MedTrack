@@ -7,12 +7,20 @@ use App\Models\UbsWing;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UbsUnitCreateRequest;
 use App\Http\Requests\UbsUnitUpdateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UbsUnitController extends Controller
 {
+    private $user;
+
+    public function __construct()
+    {
+        $this->user =  Auth::user();
+    }
+
     public function index()
     {
-        $units = UbsUnit::all();
+        $units = UbsUnit::where('company_id', $this->user->company->id);
 
         return view('units.index', compact('units'));
     }
