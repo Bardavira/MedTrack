@@ -20,7 +20,7 @@ class UbsUnitController extends Controller
 
     public function index()
     {
-        $units = UbsUnit::where('company_id', $this->user->company->id);
+        $units = UbsUnit::where('company_id', $this->user->company->id)->get();
 
         return view('units.index', compact('units'));
     }
