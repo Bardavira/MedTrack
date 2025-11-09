@@ -15,9 +15,18 @@ use Illuminate\Support\Facades\Storage;
 
 class MedicalRecordController extends Controller
 {
+    private $user;
+
+    private $company_id;
+
+    public function __construct()
+    {
+        $this->user = Auth::user();
+        $this->company_id = $this->user->company_id;
+    }
     public function index() 
     {
-        $medicalRecords = MedicalRecord::all();
+        $medicalRecords = MedicalRecord::where('company_id', $this->company_id);
 
         return view('medical_records.index', compact('medicalRecords'));
     }
@@ -43,7 +52,8 @@ class MedicalRecordController extends Controller
         $medicalRecord = new MedicalRecord([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
-            'active' => 1
+            'active' => 1,
+            'company_id' => $this->company_id,
         ]);
 
         $medicalRecord->save();

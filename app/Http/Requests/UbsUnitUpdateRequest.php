@@ -10,20 +10,25 @@ class UbsUnitUpdateRequest extends FormRequest
     {
         return true;
     }
+
     public function rules(): array
     {
         return [
-            'description' => 'sometimes',
+            'description' => 'sometimes|string',
             'wing_id' => 'sometimes|numeric',
         ];
     }
-    protected function prepareforValidation()
+
+    protected function prepareForValidation()
     {
-        if ($this->description == null) {
-            $this->request->remove( key:'description');
+        $data = $this->all();
+
+        foreach (['description', 'wing_id'] as $field) {
+            if (empty($data[$field])) {
+                unset($data[$field]);
+            }
         }
-        if ($this->wing_id == null) {
-            $this->request->remove( key:'wing_id');
-        }
+
+        $this->replace($data);
     }
 }
