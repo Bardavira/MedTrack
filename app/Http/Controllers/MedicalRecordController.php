@@ -26,7 +26,7 @@ class MedicalRecordController extends Controller
     }
     public function index() 
     {
-        $medicalRecords = MedicalRecord::where('company_id', $this->company_id);
+        $medicalRecords = MedicalRecord::where('company_id', $this->company_id)->get();
 
         return view('medical_records.index', compact('medicalRecords'));
     }
