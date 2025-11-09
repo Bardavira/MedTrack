@@ -6,12 +6,24 @@ use App\Models\UbsWing;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\UbsWingCreateRequest;
 use App\Http\Requests\UbsWingUpdateRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UbsWingController extends Controller
 {
+    private $user;
+
+    private $company_id;
+
+    public function __construct()
+    {
+        $this->user =  Auth::user();
+        $this->company_id -> $this->user->company_id;
+    }
+
     public function index()
     {
-        $wings = UbsWing::all();
+        $wings = UbsWing::where('company_id', $this->company_id)->get();
 
         return view('wings.index', compact('wings'));
     }
@@ -39,6 +51,7 @@ class UbsWingController extends Controller
     {
         $ubsWing = new UbsWing([
             'description' => $request->post('description', ''),
+            'company_id' => $this->company_id
         ]);
         $ubsWing->save();
 

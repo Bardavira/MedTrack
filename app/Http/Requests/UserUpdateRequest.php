@@ -31,17 +31,16 @@ class UserUpdateRequest extends FormRequest
         ];
     }
 
-    protected function prepareforValidation()
+    protected function prepareForValidation()
     {
-        if ($this->email == null) {
-            $this->request->remove( key:'email');
+        $data = $this->all();
+
+        foreach (['email', 'name', 'password', 'unit_id'] as $field) {
+            if (empty($data[$field])) {
+                unset($data[$field]);
+            }
         }
-        if ($this->name == null) {
-            $this->request->remove( key:'name');
-        }
-        if ($this->password == null) {
-            $this->request->remove( key:'password');
-        }
-        
+
+        $this->replace($data);
     }
 }
