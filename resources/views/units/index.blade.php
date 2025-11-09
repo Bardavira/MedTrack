@@ -25,7 +25,6 @@
                 </thead>
                 <tbody>
                 @foreach($units as $unit)
-                    @dd($units)
                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 border-t">
                         <td class="px-4 py-2 border">{{ $unit->description }}</td>
                         <td class="px-4 py-2 border text-center">
